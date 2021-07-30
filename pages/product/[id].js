@@ -1,5 +1,20 @@
-import { Box } from "@chakra-ui/react";
+import NextLink from "next/link";
+import {
+	Box,
+	Flex,
+	Link,
+	Heading,
+	Divider,
+	Text,
+	Table,
+	Tr,
+	Td,
+	Button,
+	HStack,
+} from "@chakra-ui/react";
 import Image from "next/image";
+
+import Rating from "../../component/Rating";
 
 const PRODUCT = {
 	name: "Airpods Wireless Bluetooth Headphones",
@@ -15,12 +30,50 @@ const PRODUCT = {
 };
 
 const ProductPage = () => {
-	const { image, name, price } = PRODUCT;
+	const { image, name, price, rating, numReviews, description, countInStock } = PRODUCT;
 	return (
-		<Box>
-			<Image src={image} alt={name} w='400' h='400'></Image>
-		</Box>
-        
+		<>
+			<NextLink href='/' passHref>
+				<Link>Go back</Link>
+			</NextLink>
+			<HStack spacing='50'>
+				<Box w='50%'>
+					<Image
+						src={image}
+						alt={name}
+						width='600'
+						height='600'
+						layout='responsive'
+					></Image>
+				</Box>
+				<HStack spacing='5' w='50%'>
+					<Flex flexDirection='column'>
+						<Heading>{name}</Heading>
+						<Divider />
+						<Rating value={rating} text={`${numReviews} reviews`}></Rating>
+						<Divider />
+						<Box>Price : ${price}</Box>
+						<Divider />
+						<Text as='p'>{description}</Text>
+					</Flex>
+					<Box>
+						<Table variant='simple' border='1px' borderColor='gray.200'>
+							<Tr>
+								<Td>Price</Td>
+								<Td>{price}</Td>
+							</Tr>
+							<Tr>
+								<Td>Status</Td>
+								<Td>{countInStock === 0 ? "Out of Stock" : countInStock}</Td>
+							</Tr>
+							<Tr>
+								<Button>Check Out</Button>
+							</Tr>
+						</Table>
+					</Box>
+				</HStack>
+			</HStack>
+		</>
 	);
 };
 
