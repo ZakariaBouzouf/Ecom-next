@@ -11,6 +11,14 @@ import {
 	Td,
 	Button,
 	HStack,
+	VStack,
+	Spacer,
+	Center,
+	Grid,
+	GridItem,
+	Th,
+	List,
+	ListItem,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
@@ -32,48 +40,99 @@ const PRODUCT = {
 const ProductPage = () => {
 	const { image, name, price, rating, numReviews, description, countInStock } = PRODUCT;
 	return (
-		<>
-			<NextLink href='/' passHref>
-				<Link>Go back</Link>
-			</NextLink>
-			<HStack spacing='50'>
-				<Box w='50%'>
+		<Box>
+			<Box p='10'>
+				<NextLink href='/' passHref>
+					<Link textTransform='uppercase'>Go back</Link>
+				</NextLink>
+			</Box>
+			<Grid
+				templateColumns='repeat(4, 1fr)'
+				gap='6'
+				// flexDirection={{ base: "column", md: "row", xl: "row" }}
+				// alignContent='space-around'
+			>
+				<GridItem colSpan={2}>
 					<Image
 						src={image}
 						alt={name}
-						width='600'
-						height='600'
-						layout='responsive'
+						width='700'
+						height='700'
+						// layout='responsive'
 					></Image>
-				</Box>
-				<HStack spacing='5' w='50%'>
-					<Flex flexDirection='column'>
-						<Heading>{name}</Heading>
+				</GridItem>
+
+				<GridItem>
+					<VStack alignItems='flex-start' spacing='3'>
+						<Heading size='lg' fontWeight='normal' p='2'>
+							{name}
+						</Heading>
 						<Divider />
-						<Rating value={rating} text={`${numReviews} reviews`}></Rating>
+						<Box p='2'>
+							<Rating value={rating} text={`${numReviews} reviews`}></Rating>
+						</Box>
 						<Divider />
-						<Box>Price : ${price}</Box>
+						<Box p='2'>Price : ${price}</Box>
 						<Divider />
-						<Text as='p'>{description}</Text>
+						<Text p='2' as='p'>
+							{description}
+						</Text>
+					</VStack>
+				</GridItem>
+
+				<GridItem>
+					<Flex alignItems='flex-start'>
+						<List
+							templateColumns='repeat(1,1fr)'
+							templateRows='repeat(4,1fr)'
+							w='100%'
+							spacing='4'
+							border='1px'
+							borderColor='gray.300'
+							p='2'
+						>
+							<ListItem mt='2'>
+								<Grid templateColumns='repeat(2, 1fr)' gap='5'>
+									<GridItem>Price :</GridItem>
+									<GridItem>$ {price}</GridItem>
+								</Grid>
+							</ListItem>
+							<Divider />
+							<ListItem>
+								<Grid templateColumns='repeat(2, 1fr)' gap='5'>
+									<GridItem>Status :</GridItem>
+									<GridItem>
+										{countInStock === 0 ? "Out of Stock" : countInStock}
+									</GridItem>
+								</Grid>
+							</ListItem>
+							<Divider />
+							<ListItem>
+								<Grid templateColumns='repeat(2, 1fr)' gap='5'>
+									<GridItem>QTY :</GridItem>
+									<GridItem>{PRODUCT.countInStock}</GridItem>
+								</Grid>
+							</ListItem>
+							<Divider />
+							<ListItem w='100%'>
+								<Button
+									size='lg'
+									borderRadius='0'
+									bg='black'
+									color='white'
+									w='100%'
+									_hover={{
+										bg: "gray.800",
+									}}
+								>
+									Check Out
+								</Button>
+							</ListItem>
+						</List>
 					</Flex>
-					<Box>
-						<Table variant='simple' border='1px' borderColor='gray.200'>
-							<Tr>
-								<Td>Price</Td>
-								<Td>{price}</Td>
-							</Tr>
-							<Tr>
-								<Td>Status</Td>
-								<Td>{countInStock === 0 ? "Out of Stock" : countInStock}</Td>
-							</Tr>
-							<Tr>
-								<Button>Check Out</Button>
-							</Tr>
-						</Table>
-					</Box>
-				</HStack>
-			</HStack>
-		</>
+				</GridItem>
+			</Grid>
+		</Box>
 	);
 };
 

@@ -36,7 +36,7 @@ const ProductItem = ({ product }) => {
 				</Text>
 			</Link>
 			<Rating value={rating} text={`${numReviews} reviews`}></Rating>
-			<Heading as='h3' size='md'>
+			<Heading as='h3' size='lg' fontWeight='normal'>
 				${price}
 			</Heading>
 		</Flex>
