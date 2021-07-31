@@ -5,7 +5,7 @@ import { Flex, Heading, Text, Link } from "@chakra-ui/react";
 
 import Rating from "../Rating";
 
-const ProductItem = ({ product }) => {
+const ListItems = ({ product }) => {
 	const { name, image, rating, numReviews, price, id } = product;
 	return (
 		<Flex
@@ -43,4 +43,4 @@ const ProductItem = ({ product }) => {
 	);
 };
 
-export default ProductItem;
+export default ListItems;
