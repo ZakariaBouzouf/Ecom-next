@@ -1,6 +1,7 @@
 import { Flex, Box, Button, Input, Link, Container, HStack } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import NextLink from "next/link";
 
 import Logo from "./logo";
 
@@ -35,35 +36,39 @@ const MainNavigation = () => {
 					</Flex>
 
 					<Box mr='3'>
-						<Link
-							ml='2'
-							mr='8'
-							fontSize='0.875rem'
-							color='gray.300'
-							fontWeight='600'
-							_hover={{ color: "white" }}
-						>
-							<FontAwesomeIcon
-								icon={faShoppingCart}
-								style={{ marginRight: "8px" }}
-							></FontAwesomeIcon>
-							Chart
-						</Link>
+						<NextLink href='/chart' passHref>
+							<Link
+								ml='2'
+								mr='8'
+								fontSize='0.875rem'
+								color='gray.300'
+								fontWeight='600'
+								_hover={{ color: "white" }}
+							>
+								<FontAwesomeIcon
+									icon={faShoppingCart}
+									style={{ marginRight: "8px" }}
+								></FontAwesomeIcon>
+								Chart
+							</Link>
+						</NextLink>
 
-						<Link
-							ml='2'
-							mr='8'
-							fontSize='0.875rem'
-							color='gray.300'
-							fontWeight='600'
-							_hover={{ color: "white" }}
-						>
-							<FontAwesomeIcon
-								icon={faUser}
-								style={{ marginRight: "8px" }}
-							></FontAwesomeIcon>
-							Sign in
-						</Link>
+						<NextLink href='/signin' passHref>
+							<Link
+								ml='2'
+								mr='8'
+								fontSize='0.875rem'
+								color='gray.300'
+								fontWeight='600'
+								_hover={{ color: "white" }}
+							>
+								<FontAwesomeIcon
+									icon={faUser}
+									style={{ marginRight: "8px" }}
+								></FontAwesomeIcon>
+								Sign in
+							</Link>
+						</NextLink>
 					</Box>
 				</HStack>
 			</Container>
