@@ -6,7 +6,8 @@
 		"dev": "next dev -p 3005",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"data:import": "node seeder"
 	},
 	"dependencies": {
 		"@chakra-ui/react": "^1.6.5",
@@ -15,7 +16,9 @@
 		"@fortawesome/fontawesome-svg-core": "^1.2.35",
 		"@fortawesome/free-solid-svg-icons": "^5.15.3",
 		"@fortawesome/react-fontawesome": "^0.1.14",
+		"colors": "^1.4.0",
 		"framer-motion": "^4.1.17",
+		"mongoose": "^5.13.5",
 		"next": "11.0.1",
 		"react": "17.0.2",
 		"react-dom": "17.0.2"
