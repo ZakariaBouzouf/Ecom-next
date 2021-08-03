@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<ChakraProvider theme={theme}>
 			<Layout>
-				<Container centerContent maxW='container.xl'>
+				<Container centerContent maxW='container.xl' py='1rem'>
 					<Component {...pageProps} />
 				</Container>
 			</Layout>
