@@ -13,15 +13,19 @@
 		"@chakra-ui/react": "^1.6.5",
 		"@emotion/react": "^11.4.0",
 		"@emotion/styled": "^11.3.0",
+		"@fontsource/open-sans": "^4.5.0",
+		"@fontsource/raleway": "^4.5.0",
 		"@fortawesome/fontawesome-svg-core": "^1.2.35",
 		"@fortawesome/free-solid-svg-icons": "^5.15.3",
 		"@fortawesome/react-fontawesome": "^0.1.14",
 		"colors": "^1.4.0",
+		"formik": "^2.2.9",
 		"framer-motion": "^4.1.17",
 		"mongoose": "^5.13.5",
 		"next": "11.0.1",
 		"react": "17.0.2",
-		"react-dom": "17.0.2"
+		"react-dom": "17.0.2",
+		"yup": "^0.32.9"
 	},
 	"devDependencies": {
 		"eslint": "7.31.0",
